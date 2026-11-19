@@ -1,0 +1,256 @@
+html[data-color-mode="light"] {
+  --bg-body: #f7fbff;
+  --bg-surface: #eaf3ff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #edf5ff;
+  --bg-glass: rgba(255, 255, 255, 0.86);
+  --border-subtle: rgba(1, 82, 207, 0.16);
+  --border-strong: rgba(1, 82, 207, 0.28);
+  --border-accent: rgba(1, 108, 241, 0.38);
+  --text-main: #061d3a;
+  --text-muted: #3d5d80;
+  --text-dim: #5a7695;
+  --text-inverse: #ffffff;
+  color-scheme: light;
+}
+
+html[data-color-mode="light"] body {
+  background: var(--bg-body);
+  color: var(--text-main);
+}
+
+html[data-color-mode="light"] .ambient-glow .glow-sphere {
+  opacity: 0.09;
+}
+html[data-color-mode="light"] .particle-field {
+  opacity: 0.42;
+}
+
+html[data-color-mode="light"] .site-header {
+  background: linear-gradient(180deg, rgba(247, 251, 255, 0.95), rgba(247, 251, 255, 0.56));
+}
+
+html[data-color-mode="light"] .site-header.is-scrolled {
+  background-color: rgba(247, 251, 255, 0.8);
+}
+
+html[data-color-mode="light"] .nimbus-nav[data-tone="dark"] {
+  --n-tint: rgba(255, 255, 255, 0.72);
+  --n-fg: #061d3a;
+  --n-fg-soft: #31547e;
+  --n-rim: rgba(1, 82, 207, 0.28);
+}
+
+html[data-color-mode="light"] .nimbus-nav .nimbus-glass {
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.95),
+    inset 0 0 0 1px rgba(1, 82, 207, 0.18),
+    0 8px 24px -14px rgba(1, 52, 126, 0.28);
+}
+
+html[data-color-mode="light"] .nimbus-cta .nimbus-glass {
+  background: rgba(255, 255, 255, 0.76);
+}
+
+html[data-color-mode="light"] .nimbus-cta:is(:hover, :focus-within, :active) .nimbus-item {
+  color: #fff;
+}
+
+html[data-color-mode="light"] .hero-section,
+html[data-color-mode="light"] .marquee-band {
+  background: radial-gradient(ellipse at 68% 44%, rgba(1, 108, 241, 0.09), transparent 58%), #f7fbff;
+}
+
+html[data-color-mode="light"] .hero-section .hero-container .hero-title,
+html[data-color-mode="light"]
+  :is(.diagnostic-section, .developers-section, .included-section, .hiring-section, .faq-section)
+  .section-title,
+html[data-color-mode="light"] :is(.manifesto-title, .cta-heading) {
+  color: #061d3a !important;
+}
+
+html[data-color-mode="light"] .hero-section .hero-container .hero-logo {
+  filter: drop-shadow(0 18px 30px rgba(1, 82, 207, 0.16));
+}
+
+html[data-color-mode="light"] .marquee-band .marquee-item {
+  color: #0b2c55;
+  text-shadow: none;
+}
+
+html[data-color-mode="light"] .marquee-band .marquee-item img {
+  border-color: rgba(1, 82, 207, 0.18);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+html[data-color-mode="light"] .marquee-band .marquee-item img[src$="chatgpt.svg"] {
+  background: #15365e;
+  border-color: rgba(1, 82, 207, 0.45);
+}
+
+html[data-color-mode="light"] .marquee-band .marquee-item:is(:hover, :active) img,
+html[data-color-mode="light"] .marquee-band .marquee-item.is-pressed img {
+  border-color: rgba(1, 108, 241, 0.5);
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(1, 82, 207, 0.14);
+}
+
+html[data-color-mode="light"] .marquee-band .marquee-item:is(:hover, :active, .is-pressed) img[src$="chatgpt.svg"] {
+  background: #15365e;
+}
+
+html[data-color-mode="light"] .marquee-band .marquee-glass {
+  background: radial-gradient(110% 150% at 25% 0%, rgba(255, 255, 255, 0.95), transparent 55%), rgba(1, 108, 241, 0.12);
+  box-shadow:
+    inset 0 1px 1px #fff,
+    inset 0 0 0 1px rgba(1, 108, 241, 0.28),
+    0 10px 25px -12px rgba(1, 82, 207, 0.25);
+}
+
+html[data-color-mode="light"]
+  :is(
+    .diagnostic-section .accordion-header,
+    .diagnostic-section .diagram-card-title,
+    .diagnostic-section .node-circle,
+    .included-section .card-title,
+    .hiring-section .hiring-card-title,
+    .faq-section .faq-question-btn,
+    .faq-section .founder-name,
+    .site-footer .col-title
+  ) {
+  color: #061d3a !important;
+}
+
+html[data-color-mode="light"] .diagnostic-section .node-circle {
+  background: #eaf3ff;
+  box-shadow: 0 4px 14px rgba(1, 82, 207, 0.1);
+}
+
+html[data-color-mode="light"] .diagnostic-section .diagram-caption {
+  color: var(--text-muted) !important;
+  background: #f2f7ff;
+  border-color: var(--border-subtle);
+}
+
+html[data-color-mode="light"] .diagnostic-section .diagram-flow::before {
+  background: linear-gradient(90deg, rgba(1, 82, 207, 0.14), var(--ui-accent), rgba(1, 82, 207, 0.14));
+}
+
+html[data-color-mode="light"] .developers-section .developer-card,
+html[data-color-mode="light"] .developers-section .developer-card:nth-child(3n + 2),
+html[data-color-mode="light"] .developers-section .developer-card:nth-child(3n) {
+  color: #061d3a;
+  border-color: rgba(1, 82, 207, 0.22);
+  background: linear-gradient(155deg, #e4f1ff, #b8d9ff 62%, #eaf4ff);
+}
+
+html[data-color-mode="light"] .developers-section .developer-card::before {
+  background:
+    radial-gradient(circle at 55% 35%, rgba(1, 108, 241, 0.18), transparent 55%),
+    linear-gradient(180deg, transparent 40%, rgba(215, 234, 255, 0.68));
+}
+
+html[data-color-mode="light"] .developers-section .developer-card.is-active {
+  border-color: rgba(1, 108, 241, 0.72);
+  box-shadow: 0 18px 50px rgba(1, 82, 207, 0.13);
+}
+
+html[data-color-mode="light"]
+  .developers-section
+  :is(.developer-card-number, .developer-card-name, .developer-photo-initials) {
+  color: #061d3a;
+}
+html[data-color-mode="light"] .developers-section .developer-card-role {
+  color: #0152cf;
+}
+html[data-color-mode="light"] .developers-section .developer-card-details {
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9);
+}
+html[data-color-mode="light"] .developers-section .developer-card-initials {
+  color: #0152cf;
+  background: rgba(255, 255, 255, 0.76);
+  border-color: rgba(1, 82, 207, 0.3);
+}
+html[data-color-mode="light"] .developers-section .developer-card-art::before,
+html[data-color-mode="light"] .developers-section .developer-card-art::after {
+  border-color: rgba(1, 82, 207, 0.2);
+}
+
+html[data-color-mode="light"]
+  :is(
+    .included-section .card-text,
+    .hiring-section .hiring-card-desc,
+    .faq-section .founder-quote,
+    .hiring-section .hiring-feature-item
+  ) {
+  color: var(--text-muted) !important;
+}
+
+html[data-color-mode="light"] .included-section .card-icon-wrap,
+html[data-color-mode="light"] .hiring-section .card-badge-pill,
+html[data-color-mode="light"] .faq-section :is(.faq-icon, .toggle-icon),
+html[data-color-mode="light"] .diagnostic-section .toggle-icon {
+  background: rgba(1, 108, 241, 0.08);
+  color: #0152cf;
+}
+
+html[data-color-mode="light"] .hiring-section .hiring-card.is-featured {
+  box-shadow: 0 8px 32px rgba(1, 82, 207, 0.12);
+}
+html[data-color-mode="light"] .hiring-section .card-badge-pill {
+  color: #31547e !important;
+  background: #e6f1ff;
+}
+html[data-color-mode="light"] .included-section .visual-container {
+  background: #eaf3ff;
+  border-color: var(--border-subtle);
+}
+
+html[data-color-mode="light"] .site-footer {
+  background: #e7f1ff;
+  border-top-color: var(--border-subtle);
+}
+
+html[data-color-mode="light"] .site-footer .footer-bottom {
+  border-top-color: var(--border-subtle);
+}
+
+html[data-color-mode="light"] .modal-overlay {
+  background: rgba(6, 29, 58, 0.5);
+}
+html[data-color-mode="light"] .modal-overlay .modal-card {
+  background: #fff;
+  box-shadow: 0 20px 50px rgba(1, 52, 126, 0.18);
+}
+html[data-color-mode="light"] .modal-overlay .modal-title,
+html[data-color-mode="light"] .modal-overlay .modal-close-btn:hover {
+  color: #061d3a;
+}
+html[data-color-mode="light"] .modal-overlay .form-group :is(input, textarea, select) {
+  background: #f5f9ff;
+  color: #061d3a;
+}
+
+html[data-color-mode="light"] .glass-sidebar-launcher {
+  color: #0152cf;
+  border-color: rgba(1, 82, 207, 0.25);
+  background: rgba(255, 255, 255, 0.84);
+}
+
+html[data-color-mode="light"] .glass-sidebar {
+  --glass-foreground: #061d3a;
+  --glass-highlight: rgba(1, 108, 241, 0.15);
+  background: rgba(238, 247, 255, 0.92);
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 0 1px rgba(1, 82, 207, 0.16),
+    0 12px 36px rgba(1, 52, 126, 0.2);
+}
+
+html[data-color-mode="light"] .glass-sidebar-footer {
+  border-top-color: rgba(1, 82, 207, 0.16);
+}
+html[data-color-mode="light"] .glass-sidebar-item:focus-visible,
+html[data-color-mode="light"] .glass-sidebar-toggle:focus-visible {
+  outline-color: #016cf1;
+}

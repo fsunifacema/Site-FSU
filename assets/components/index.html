@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FSU-fab</title>
+    <link rel="icon" href="../images/favicon-fsu-64.png" type="image/png" sizes="64x64" />
+
+    <link rel="stylesheet" href="../fonts/fonts.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+
+    <script src="../js/themes.js"></script>
+  </head>
+
+  <body class="catalog-page">
+    <div class="container">
+      <header class="catalog-header">
+        <h1 class="catalog-title">Catálogo de Componentes FSU</h1>
+        <p class="catalog-subtitle">
+          Guia visual e foundations reutilizáveis construídos para a landing page e aplicações da FSU.
+        </p>
+      </header>
+
+      <section class="component-section">
+        <h2 class="section-heading">01. Cores e Variáveis Cromáticas</h2>
+        <p class="section-description">
+          Tokens CSS dinâmicos configuráveis via <code>--ui-accent</code> e paletas temáticas.
+        </p>
+
+        <div class="component-showcase">
+          <div class="color-swatches-grid">
+            <div class="swatch-card">
+              <div class="swatch-preview" style="background: var(--ui-accent)"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Accent (Primária)</div>
+                <div class="swatch-hex">var(--ui-accent)</div>
+              </div>
+            </div>
+
+            <div class="swatch-card">
+              <div class="swatch-preview" style="background: var(--bg-body)"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Azul-marinho profundo</div>
+                <div class="swatch-hex">#061D3A</div>
+              </div>
+            </div>
+
+            <div class="swatch-card">
+              <div class="swatch-preview" style="background: var(--bg-card)"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Superfície de card</div>
+                <div class="swatch-hex">#0b2c55</div>
+              </div>
+            </div>
+
+            <div class="swatch-card">
+              <div class="swatch-preview" style="background: var(--text-main)"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Branco puro</div>
+                <div class="swatch-hex">#FFFFFF</div>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-preview" style="background: var(--ui-accent-dark)"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Azul royal / interação</div>
+                <div class="swatch-hex">var(--ui-accent-dark) | #0152CF no tema padrão</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="component-section">
+        <h2 class="section-heading">02. Liquid Glass Navbar ("Waterline")</h2>
+        <p class="section-description">
+          Pílula de vidro com shader WebGL de água fluida, deformação física, menisco e micro-cenas em cada ícone.
+        </p>
+
+        <div
+          class="component-showcase"
+          style="
+            justify-content: center;
+            padding: 48px 24px;
+            background:
+              radial-gradient(circle at center, rgba(var(--ui-accent-rgb), 0.06), transparent 70%), var(--bg-card);
+          "
+        >
+          <nav class="nimbus-nav" data-tone="dark" data-gl="on" data-sound="false" aria-label="Demonstração do Menu">
+            <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+              <filter
+                id="nimbus-refract-demo"
+                x="0"
+                y="0"
+                width="100%"
+                height="100%"
+                color-interpolation-filters="sRGB"
+              >
+                <feTurbulence type="fractalNoise" baseFrequency="0.006 0.02" numOctaves="2" seed="7" result="noise" />
+                <feGaussianBlur in="noise" stdDeviation="2" result="soft" />
+                <feDisplacementMap in="SourceGraphic" in2="soft" scale="60" xChannelSelector="R" yChannelSelector="G" />
+              </filter>
+            </svg>
+            <span class="nimbus-glass" aria-hidden="true"></span>
+            <canvas class="nimbus-water" aria-hidden="true"></canvas>
+            <span class="nimbus-drop" aria-hidden="true"></span>
+
+            <button type="button" class="nimbus-item" aria-current="page" data-fx="glow" aria-label="Home">
+              <span class="nv-ico">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M3.5 11.2 12 4l8.5 7.2" />
+                  <path d="M6 9.6V20h12V9.6" />
+                  <path class="nv-door" d="M10 20v-5h4v5Z" />
+                </svg>
+              </span>
+              <span class="nimbus-label">Home</span>
+            </button>
+
+            <button type="button" class="nimbus-item" data-fx="spin" aria-label="Explore">
+              <span class="nv-ico">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="8.5" />
+                  <path d="M3.5 12h17M12 3.5c2.6 2.4 2.6 14.6 0 17M12 3.5c-2.6 2.4-2.6 14.6 0 17" />
+                </svg>
+              </span>
+              <span class="nimbus-label">Explore</span>
+            </button>
+
+            <button type="button" class="nimbus-item" data-fx="plane" aria-label="Flights">
+              <span class="nv-ico">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 12.2 3.6 5.4l2.7 6.8-2.7 6.4L21 12.2Zm-14.7 0H13" />
+                </svg>
+              </span>
+              <span class="nimbus-label">Flights</span>
+            </button>
+
+            <button type="button" class="nimbus-item" data-fx="drop" aria-label="Weather">
+              <span class="nv-ico">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 3.5s6 6.4 6 10.6a6 6 0 0 1-12 0C6 9.9 12 3.5 12 3.5Z" />
+                </svg>
+              </span>
+              <span class="nimbus-label">Weather</span>
+            </button>
+
+            <button type="button" class="nimbus-item" data-fx="wave" aria-label="Profile">
+              <span class="nv-ico">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="8.5" r="3.8" />
+                  <path d="M4.8 20c1.2-3.4 4-5 7.2-5s6 1.6 7.2 5" />
+                </svg>
+              </span>
+              <span class="nimbus-label">Profile</span>
+            </button>
+          </nav>
+        </div>
+      </section>
+
+      <section class="component-section">
+        <h2 class="section-heading">02. Botões e Ações</h2>
+        <p class="section-description">Variantes primária, destaque (accent), contornada e compacta.</p>
+
+        <div class="component-showcase">
+          <button type="button" class="btn btn-primary">
+            Fale sobre seu projeto
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          <button type="button" class="btn btn-accent">Conversar sobre time dedicado</button>
+
+          <button type="button" class="btn btn-outline">Conversar sobre escopo definido</button>
+
+          <button type="button" class="btn btn-primary btn-sm">Botão Compacto</button>
+        </div>
+      </section>
+
+      <section class="component-section">
+        <h2 class="section-heading">03. Badges, Tags e Destaques</h2>
+        <p class="section-description">Identificadores de contexto, categorias e micro-destaques.</p>
+
+        <div class="component-showcase">
+          <div class="section-badge" style="margin-bottom: 0">
+            <span class="badge-dot"></span>
+            Software sob medida x pronto
+          </div>
+
+          <div class="section-badge" style="margin-bottom: 0">
+            <span class="badge-dot"></span>
+            Como trabalhamos
+          </div>
+
+          <span class="card-badge-pill">Escopo Fechado</span>
+          <span class="card-badge-pill" style="background: rgba(var(--ui-accent-rgb), 0.15); color: var(--ui-accent)"
+            >Squad Dedicada</span
+          >
+        </div>
+      </section>
+
+      <section class="component-section">
+        <h2 class="section-heading">04. Cards e Blocos de Conteúdo</h2>
+        <p class="section-description">Estruturas de informação com hover states e micro-bordas sutis.</p>
+
+        <div class="component-showcase showcase-grid-3">
+          <div class="pillar-card">
+            <div class="pillar-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
+            </div>
+            <h3 class="pillar-title">Início rápido</h3>
+            <ul class="pillar-list">
+              <li class="pillar-item">
+                <span class="item-dot"></span>
+                <span>Projeto iniciado sem ciclos longos</span>
+              </li>
+              <li class="pillar-item">
+                <span class="item-dot"></span>
+                <span>Definição objetiva de prioridades</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="included-card">
+            <div class="card-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <h3 class="card-title">Decisões técnicas alinhadas</h3>
+            <p class="card-text">A solução é definida a partir do problema real e dos objetivos estratégicos.</p>
+          </div>
+
+          <div class="hiring-card is-featured" style="padding: 24px">
+            <span class="card-badge-pill">Destaque</span>
+            <h4 class="hiring-card-title" style="font-size: 18px">Time dedicado</h4>
+            <ul class="hiring-feature-list" style="margin-bottom: 20px">
+              <li class="hiring-feature-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>Evolução contínua em sprints</span>
+              </li>
+            </ul>
+            <button type="button" class="btn btn-accent btn-sm" style="width: 100%">Contratar</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="component-section">
+        <h2 class="section-heading">05. Accordions Interativos</h2>
+        <p class="section-description">Componentes expansíveis acessíveis utilizados nas dores operacionais e FAQ.</p>
+
+        <div class="component-showcase showcase-column">
+          <div class="accordion-item is-open">
+            <button type="button" class="accordion-header" aria-expanded="true">
+              <span class="header-title-wrap">Item do Accordion aberto por padrão</span>
+              <span class="toggle-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Conteúdo explicativo renderizado suavemente com transição de altura e propriedades aria-expanded.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button type="button" class="accordion-header" aria-expanded="false">
+              <span class="header-title-wrap">Item recolhido aguardando interação</span>
+              <span class="toggle-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Clique para expandir e ler a resposta detalhada.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="component-section">
+        <h2 class="section-heading">06. Elementos de Formulário</h2>
+        <p class="section-description">Inputs estilizados para captura de leads e agendamentos.</p>
+
+        <div class="component-showcase showcase-grid-2">
+          <div class="modal-card" style="box-shadow: none; border-color: var(--border-subtle); max-width: 100%">
+            <div class="modal-body" style="padding: 20px">
+              <div class="form-group">
+                <label>Input de Texto</label>
+                <input type="text" placeholder="Digite seu nome completo..." />
+              </div>
+              <div class="form-group">
+                <label>Seleção de Opção</label>
+                <select>
+                  <option>Projeto com escopo definido</option>
+                  <option>Time dedicado para evolução contínua</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-card" style="box-shadow: none; border-color: var(--border-subtle); max-width: 100%">
+            <div class="modal-body" style="padding: 20px">
+              <div class="form-group">
+                <label>Área de Texto (Textarea)</label>
+                <textarea placeholder="Descreva os requisitos do projeto..."></textarea>
+              </div>
+              <div class="form-feedback is-success" style="display: block">
+                Exemplo de notificação de feedback positivo instantâneo.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="../js/liquid-glass-navbar.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>

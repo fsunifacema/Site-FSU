@@ -1,0 +1,114 @@
+.catalog-page {
+  padding: 60px 0 100px 0;
+
+  & .catalog-header {
+    margin-bottom: 60px;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 30px;
+
+    & .catalog-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    & .catalog-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+  }
+
+  & .component-section {
+    margin-bottom: 70px;
+
+    & .section-heading {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      &::before {
+        content: "";
+        width: 4px;
+        height: 20px;
+        background: var(--ui-accent);
+        border-radius: var(--radius-full);
+      }
+    }
+
+    & .section-description {
+      font-size: 14px;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+
+    & .component-showcase {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+
+      &.showcase-grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      &.showcase-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      &.showcase-column {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  }
+
+  & .color-swatches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+    width: 100%;
+
+    & .swatch-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+
+      & .swatch-preview {
+        height: 60px;
+        width: 100%;
+      }
+
+      & .swatch-info {
+        padding: 12px;
+
+        & .swatch-name {
+          font-size: 13px;
+          font-weight: 600;
+          color: #ffffff;
+        }
+
+        & .swatch-hex {
+          font-size: 11px;
+          font-family: var(--font-mono);
+          color: var(--text-muted);
+        }
+      }
+    }
+  }
+}

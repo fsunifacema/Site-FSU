@@ -1,0 +1,1130 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FSU — Fábrica de Software</title>
+    <meta
+      name="description"
+      content="Desenvolvemos sistemas personalizados com escopo claro, arquitetura sólida e evolução estruturada."
+    />
+    <link rel="icon" href="assets/images/favicon-fsu-64.png" type="image/png" sizes="64x64" />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <script src="assets/js/themes.js"></script>
+    <link rel="stylesheet" href="assets/css/glass-sidebar.css" />
+    <link rel="stylesheet" href="assets/css/light-mode.css" />
+    <script src="assets/js/color-mode.js"></script>
+  </head>
+
+  <body>
+    <div class="ambient-glow" aria-hidden="true">
+      <div class="glow-sphere sphere-top"></div>
+      <div class="glow-sphere sphere-middle"></div>
+      <div class="glow-sphere sphere-bottom"></div>
+    </div>
+
+    <header class="site-header">
+      <canvas class="particle-field particle-field-header" data-particle-field="header" aria-hidden="true"></canvas>
+      <div class="container header-container">
+        <a href="#hero" class="header-brand" aria-label="FSU — início">
+          <img
+            src="assets/images/logo-fsu-horizontal.webp"
+            data-logo-dark="assets/images/logo-fsu-horizontal.webp"
+            data-logo-light="assets/images/fsu-logo-horizontal-light.webp"
+            alt="FSU — Fábrica de Software"
+            class="brand-logo-img"
+            width="2087"
+            height="753"
+          />
+        </a>
+
+        <nav class="nimbus-nav" data-tone="dark" data-gl="on" data-sound="false" aria-label="Menu principal">
+          <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+            <filter id="nimbus-refract" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.006 0.02" numOctaves="2" seed="7" result="noise" />
+              <feGaussianBlur in="noise" stdDeviation="2" result="soft" />
+              <feDisplacementMap in="SourceGraphic" in2="soft" scale="60" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          </svg>
+
+          <span class="nimbus-glass" aria-hidden="true"></span>
+          <canvas class="nimbus-water" aria-hidden="true"></canvas>
+          <span class="nimbus-drop" aria-hidden="true"></span>
+
+          <a href="#o-que-fazemos" class="nimbus-item" aria-current="page" data-fx="spin" aria-label="O que fazemos">
+            <span class="nv-ico">
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="8.5"></circle>
+                <path d="M3.5 12h17M12 3.5c2.6 2.4 2.6 14.6 0 17M12 3.5c-2.6 2.4-2.6 14.6 0 17"></path>
+              </svg>
+            </span>
+            <span class="nimbus-label">O que fazemos</span>
+          </a>
+
+          <a href="#quem-somos" class="nimbus-item" data-fx="glow" aria-label="Quem somos">
+            <span class="nv-ico">
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M3.5 11.2 12 4l8.5 7.2"></path>
+                <path d="M6 9.6V20h12V9.6"></path>
+                <path class="nv-door" d="M10 20v-5h4v5Z"></path>
+              </svg>
+            </span>
+            <span class="nimbus-label">Quem somos</span>
+          </a>
+
+          <a href="#cases" class="nimbus-item" data-fx="plane" aria-label="Cases">
+            <span class="nv-ico">
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M21 12.2 3.6 5.4l2.7 6.8-2.7 6.4L21 12.2Zm-14.7 0H13"></path>
+              </svg>
+            </span>
+            <span class="nimbus-label">Cases</span>
+          </a>
+
+          <a href="#contato" class="nimbus-item" data-fx="wave" aria-label="Contato">
+            <span class="nv-ico">
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="8.5" r="3.8"></circle>
+                <path d="M4.8 20c1.2-3.4 4-5 7.2-5s6 1.6 7.2 5"></path>
+              </svg>
+            </span>
+            <span class="nimbus-label">Contato</span>
+          </a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="nimbus-nav nimbus-cta" data-tone="dark" data-gl="on" data-sound="false" data-liquid-action>
+            <span class="nimbus-glass" aria-hidden="true"></span>
+            <canvas class="nimbus-water" aria-hidden="true"></canvas>
+            <span class="nimbus-drop" aria-hidden="true"></span>
+            <button type="button" class="nimbus-item js-open-modal" data-service="Contato Geral" data-fx="pop">
+              Fale sobre seu projeto
+              <span class="nv-ico" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <button
+      class="glass-sidebar-launcher"
+      type="button"
+      aria-label="Abrir menu lateral"
+      aria-expanded="false"
+      aria-controls="glassSidebar"
+      title="Abrir menu lateral"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M9 3v18" />
+      </svg>
+    </button>
+    <div class="glass-sidebar-backdrop" aria-hidden="true"></div>
+    <aside
+      class="glass-sidebar"
+      id="glassSidebar"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menu lateral"
+      aria-hidden="true"
+      inert
+    >
+      <div class="glass-sidebar-header">
+        <button class="glass-sidebar-toggle" type="button" aria-label="Fechar menu lateral" title="Fechar menu lateral">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 5l14 14M19 5 5 19" />
+          </svg>
+        </button>
+      </div>
+      <nav class="glass-sidebar-list" id="glassSidebarLinks" aria-label="Se&ccedil;&otilde;es do site">
+        <span class="glass-sidebar-indicator" aria-hidden="true"></span>
+        <div class="glass-sidebar-group" role="group" aria-label="Navega&ccedil;&atilde;o">
+          <div class="glass-sidebar-group-label">Navega&ccedil;&atilde;o</div>
+          <a
+            class="glass-sidebar-item"
+            href="#hero"
+            aria-label="In&iacute;cio"
+            aria-current="page"
+            title="In&iacute;cio"
+            ><svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m3.5 10 8.5-7 8.5 7V20a1 1 0 0 1-1 1H4.5a1 1 0 0 1-1-1z" />
+              <path d="M9 21v-7h6v7" /></svg
+            ><span class="glass-sidebar-item-label">In&iacute;cio</span></a
+          >
+          <a class="glass-sidebar-item" href="#o-que-fazemos" aria-label="O que fazemos" title="O que fazemos"
+            ><svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18" /></svg
+            ><span class="glass-sidebar-item-label">O que fazemos</span></a
+          >
+          <a class="glass-sidebar-item" href="#quem-somos" aria-label="Quem somos" title="Quem somos"
+            ><svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="9" cy="8" r="3" />
+              <path
+                d="M2.5 20c.5-3.6 3-5.5 6.5-5.5s6 1.9 6.5 5.5M16 5.5a3 3 0 0 1 0 5.8M17.5 14.5c2.3.4 3.8 2.2 4 5.5"
+              /></svg
+            ><span class="glass-sidebar-item-label">Quem somos</span></a
+          >
+          <a class="glass-sidebar-item" href="#cases" aria-label="Cases" title="Cases"
+            ><svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="7" width="18" height="14" rx="2" />
+              <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18" /></svg
+            ><span class="glass-sidebar-item-label">Cases</span></a
+          >
+          <a class="glass-sidebar-item" href="#contato" aria-label="Contato" title="Contato"
+            ><svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m4 7 8 6 8-6" /></svg
+            ><span class="glass-sidebar-item-label">Contato</span></a
+          >
+        </div>
+      </nav>
+      <div class="glass-sidebar-footer">
+        <button
+          class="cinematic-theme-switcher"
+          type="button"
+          role="switch"
+          aria-checked="true"
+          aria-label="Alternar para modo claro"
+          title="Alternar modo claro e escuro"
+        >
+          <span class="theme-switcher-groove" aria-hidden="true"></span>
+          <span class="theme-switcher-gloss" aria-hidden="true"></span>
+          <span class="theme-switcher-ambient" aria-hidden="true"></span>
+          <span class="theme-switcher-icon theme-switcher-sun" aria-hidden="true"
+            ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"
+              /></svg
+          ></span>
+          <span class="theme-switcher-icon theme-switcher-moon" aria-hidden="true"
+            ><svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5 8.5 8.5 0 1 0 20.5 14.5Z" /></svg
+          ></span>
+          <span class="theme-switcher-thumb" aria-hidden="true"
+            ><span class="theme-switcher-thumb-shine"></span
+            ><span class="theme-switcher-particles"><i></i><i></i><i></i></span
+            ><span class="theme-switcher-thumb-icon theme-switcher-thumb-sun"
+              ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"
+                /></svg></span
+            ><span class="theme-switcher-thumb-icon theme-switcher-thumb-moon"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5 8.5 8.5 0 1 0 20.5 14.5Z" /></svg></span
+          ></span>
+        </button>
+      </div>
+    </aside>
+
+    <main>
+      <section id="hero" class="hero-section">
+        <canvas class="particle-field particle-field-hero" data-particle-field="hero" aria-hidden="true"></canvas>
+        <div class="container hero-container">
+          <div class="hero-copy">
+            <h1 class="hero-title">
+              Software <span class="hero-highlight">sob medida</span><br />
+              para a realidade do seu negócio.
+            </h1>
+
+            <p class="hero-description">
+              Desenvolvemos sistemas personalizados com escopo claro, arquitetura sólida e evolução estruturada — do
+              entendimento do problema à entrega e continuidade da solução.
+            </p>
+
+            <div class="hero-actions">
+              <button type="button" class="btn btn-primary js-open-modal" data-service="Novo Projeto">
+                Fale sobre seu projeto
+                <svg
+                  class="btn-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <span class="hero-orbit hero-orbit-inner" aria-hidden="true"></span>
+            <span class="hero-orbit hero-orbit-outer" aria-hidden="true"></span>
+            <span class="hero-pixel hero-pixel-one" aria-hidden="true"></span>
+            <span class="hero-pixel hero-pixel-two" aria-hidden="true"></span>
+            <span class="hero-pixel hero-pixel-three" aria-hidden="true"></span>
+            <img
+              class="hero-logo"
+              src="assets/images/logo-fsu-branca.webp"
+              data-logo-dark="assets/images/logo-fsu-branca.webp"
+              data-logo-light="assets/images/fsu-logo-light.webp"
+              alt="Logo branca da FSU — Fábrica de Software UNIFACEMA"
+              width="740"
+              height="740"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="marquee-band" aria-label="Tecnologias em destaque">
+        <canvas class="particle-field particle-field-marquee" data-particle-field="marquee" aria-hidden="true"></canvas>
+        <div class="marquee-container">
+          <div class="marquee-viewport">
+            <div class="marquee-track">
+              <div class="marquee-group">
+                <span class="marquee-item"><img src="assets/images/marquee/react.svg" alt="" />React</span>
+                <span class="marquee-item"><img src="assets/images/marquee/javascript.svg" alt="" />JavaScript</span>
+                <span class="marquee-item"><img src="assets/images/marquee/tailwind.svg" alt="" />Tailwind</span>
+                <span class="marquee-item"><img src="assets/images/marquee/nuxt.svg" alt="" />Nuxt</span>
+                <span class="marquee-item"><img src="assets/images/marquee/vs-code.svg" alt="" />VS Code</span>
+                <span class="marquee-item"><img src="assets/images/marquee/vue.svg" alt="" />Vue</span>
+                <span class="marquee-item"><img src="assets/images/marquee/angular.svg" alt="" />Angular</span>
+                <span class="marquee-item"><img src="assets/images/marquee/figma.svg" alt="" />Figma</span>
+                <span class="marquee-item"><img src="assets/images/marquee/claude.svg" alt="" />Claude</span>
+                <span class="marquee-item"><img src="assets/images/marquee/chatgpt.svg" alt="" />ChatGPT</span>
+                <span class="marquee-item"><img src="assets/images/marquee/slack.svg" alt="" />Slack</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="o-que-fazemos" class="diagnostic-section">
+        <div class="container" data-reveal>
+          <div class="diagnostic-header">
+            <div class="section-badge">
+              <span class="badge-dot"></span>
+              Software sob medida x pronto
+            </div>
+
+            <h2 class="section-title">
+              Software sob medida para <span class="text-highlight">resolver, problemas reais</span> da operação.
+            </h2>
+
+            <p class="section-desc">
+              Quando sistemas prontos não atendem a operação, o software sob medida permite construir uma solução
+              alinhada aos processos, integrações e objetivos específicos da empresa.
+            </p>
+          </div>
+
+          <div class="diagnostic-grid">
+            <div class="problems-column">
+              <div class="accordion-item is-open">
+                <button type="button" class="accordion-header" aria-expanded="true">
+                  <span class="header-title-wrap">O sistema atual limita a operação</span>
+                  <span class="toggle-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                  <p>
+                    Ferramentas de prateleira forçam sua empresa a adaptar processos em vez de apoiar o crescimento.
+                    Criamos arquiteturas moldadas ao fluxo operacional da sua equipe.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button type="button" class="accordion-header" aria-expanded="false">
+                  <span class="header-title-wrap">O escopo precisa mudar sem perder controle</span>
+                  <span class="toggle-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                  <p>
+                    Negócios ágeis mudam rápido. Nossa metodologia em sprints permite repriorizar funcionalidades com
+                    transparência de custos e prazos em cada etapa.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button type="button" class="accordion-header" aria-expanded="false">
+                  <span class="header-title-wrap">Erros são descobertos tarde demais</span>
+                  <span class="toggle-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                  <p>
+                    Validações contínuas, testes automatizados e prototipagem prévia eliminam retrabalhos caros e
+                    garantem entregas confiáveis desde a primeira sprint.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button type="button" class="accordion-header" aria-expanded="false">
+                  <span class="header-title-wrap">Tecnologia e negócio não conseguem avançar juntos</span>
+                  <span class="toggle-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                  <p>
+                    Nossa equipe fala a língua do seu negócio. Traduzimos metas comerciais em especificações técnicas
+                    precisas e métricas reais de resultado.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="diagram-column">
+              <h3 class="diagram-card-title">Do problema à evolução da solução</h3>
+
+              <div class="diagram-flow">
+                <div class="flow-node">
+                  <div class="node-circle is-active">01</div>
+                  <span class="node-label">Entendimento real do problema</span>
+                </div>
+
+                <div class="flow-node">
+                  <div class="node-circle">02</div>
+                  <span class="node-label">Arquitetura e validações</span>
+                </div>
+
+                <div class="flow-node">
+                  <div class="node-circle">03</div>
+                  <span class="node-label">Construção e evolução</span>
+                </div>
+              </div>
+
+              <div class="diagram-caption">
+                Fluxo iterativo com validações técnicas contínuas em cada ciclo de entrega.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="quem-somos" class="developers-section" aria-labelledby="developers-title">
+        <div class="container" data-reveal>
+          <div class="developers-header">
+            <span class="developers-kicker">QUEM SOMOS / FSU</span>
+            <h2 id="developers-title" class="section-title">
+              As pessoas por tr&aacute;s <span class="text-highlight">do c&oacute;digo.</span>
+            </h2>
+            <p class="section-desc">
+              Conhe&ccedil;a os desenvolvedores da F&aacute;brica de Software. Passe o cursor, toque ou use o teclado
+              para explorar cada perfil.
+            </p>
+          </div>
+          <div class="developers-gallery" aria-label="Desenvolvedores da FSU">
+            <article
+              class="developer-card developer-card--thiago developer-card--flip is-active"
+              aria-label="Thiago José"
+            >
+              <button
+                class="developer-flip-trigger"
+                type="button"
+                aria-pressed="true"
+                aria-label="Ver biografia de Thiago José"
+                aria-expanded="false"
+                aria-controls="bio-thiago"
+              >
+                <span class="developer-card-front">
+                  <span class="developer-card-number" aria-hidden="true">01 / 09</span>
+                  <span class="developer-card-art has-photo" aria-hidden="true"
+                    ><img
+                      class="developer-card-photo"
+                      src="assets/images/thiago.webp"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    /><span class="developer-photo-initials">T</span></span
+                  >
+                  <span class="developer-card-details">
+                    <span class="developer-card-role">Desenvolvedor front-end</span>
+                    <strong class="developer-card-name">Thiago José</strong>
+                  </span>
+                  <span class="developer-card-hint">Clique para conhecer</span>
+                </span>
+                <span class="developer-card-back" id="bio-thiago" aria-hidden="true">
+                  <span class="developer-card-role">Desenvolvedor front-end</span>
+                  <strong class="developer-bio-name">Thiago José</strong>
+                  <span class="developer-bio-text"
+                    >Olá! Sou Thiago José, desenvolvedor front-end e estudante de Análise e Desenvolvimento de Sistemas.
+                    Na FSU do UniFacema, desenvolvo o front-end de projetos como este site e o Caxias Infraestruturas
+                    (CI). Utilizo tecnologias como HTML5, CSS3, JavaScript, TypeScript, React, React Native, Tailwind
+                    CSS e PHP Native. Atualmente, busco ampliar meu repertório de tecnologias e conhecimentos para
+                    aprimorar o design de interfaces profissionais e empresariais. Também estudo métricas de experiência
+                    do usuário (UX) e como o framework HEART, do Google, organiza essas medidas, incluindo a satisfação
+                    do usuário. Na minha visão, o front-end é a primeira oportunidade de captar a atenção do cliente e
+                    despertar seu interesse.</span
+                  >
+                  <span class="developer-bio-return">Clique para voltar à foto</span>
+                </span>
+              </button>
+              <a
+                class="developer-github"
+                href="https://github.com/THiagALmeida"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub de Thiago José (abre em nova aba)"
+                title="GitHub de Thiago José"
+                tabindex="-1"
+              >
+                <img src="assets/images/technologies/github.svg" width="24" height="24" alt="" />
+              </a>
+            </article>
+            <button class="developer-card" type="button" aria-pressed="false" aria-label="Conhecer Samuel">
+              <span class="developer-card-number" aria-hidden="true">02 / 09</span>
+              <span class="developer-card-art has-photo" aria-hidden="true"
+                ><img
+                  class="developer-card-photo"
+                  src="assets/images/samuel.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                /><span class="developer-photo-initials">S</span></span
+              >
+              <span class="developer-card-details">
+                <span class="developer-card-role">Desenvolvedor da FSU</span>
+                <strong class="developer-card-name">Samuel</strong>
+              </span>
+            </button>
+            <button
+              class="developer-card developer-card--marcelo developer-card--flip"
+              type="button"
+              aria-pressed="false"
+              aria-label="Ver biografia de João Marcelo"
+              aria-expanded="false"
+              aria-controls="bio-marcelo"
+            >
+              <span class="developer-card-front">
+                <span class="developer-card-number" aria-hidden="true">03 / 09</span>
+                <span class="developer-card-art has-photo" aria-hidden="true"
+                  ><img
+                    class="developer-card-photo"
+                    src="assets/images/joao-marcelo.webp"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                /></span>
+                <span class="developer-card-details">
+                  <span class="developer-card-role">Desenvolvedor back-end</span>
+                  <strong class="developer-card-name">João Marcelo</strong>
+                </span>
+                <span class="developer-card-hint">Clique para conhecer</span>
+              </span>
+              <span class="developer-card-back" id="bio-marcelo" aria-hidden="true">
+                <span class="developer-card-role">Desenvolvedor back-end</span>
+                <strong class="developer-bio-name">João Marcelo</strong>
+                <span class="developer-bio-text"
+                  >Sou o João Marcelo, desenvolvedor back-end e estudante de Engenharia de Software e Análise e
+                  Desenvolvimento de Sistemas. Na Fábrica de Software do UniFacema, desenvolvo o back-end de sistemas
+                  institucionais com PHP, Laravel e Docker, crio funcionalidades de organização, controle e análise de
+                  dados, apoio o front-end com React, JavaScript, HTML5 e CSS3 e gerencio redes e servidores físicos e
+                  virtuais. Minha experiência como redator e professor me ajuda a comunicar com clareza e a explicar
+                  soluções técnicas. Busco estágio em desenvolvimento de sistemas e engenharia de software.</span
+                >
+                <span class="developer-bio-return">Clique para voltar à foto</span>
+              </span>
+            </button>
+            <button
+              class="developer-card developer-card--icaro developer-card--flip"
+              type="button"
+              aria-pressed="false"
+              aria-label="Ver biografia de Ícaro Mairon"
+              aria-expanded="false"
+              aria-controls="bio-icaro"
+            >
+              <span class="developer-card-front">
+                <span class="developer-card-number" aria-hidden="true">04 / 09</span>
+                <span class="developer-card-art has-photo" aria-hidden="true"
+                  ><img
+                    class="developer-card-photo"
+                    src="assets/images/Icaro.webp"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                /></span>
+                <span class="developer-card-details">
+                  <span class="developer-card-role">Desenvolvedor frontend</span>
+                  <strong class="developer-card-name">Ícaro Mairon</strong>
+                </span>
+                <span class="developer-card-hint">Clique para conhecer</span>
+              </span>
+              <span class="developer-card-back" id="bio-icaro" aria-hidden="true">
+                <span class="developer-card-role">Desenvolvedor frontend</span>
+                <strong class="developer-bio-name">Ícaro Mairon</strong>
+                <span class="developer-bio-text">Técnico em Informática (IFMA) e estudante de ADS na UniFacema.</span>
+                <span class="developer-bio-return">Clique para voltar à foto</span>
+              </span>
+            </button>
+            <button
+              class="developer-card developer-card--carlos developer-card--flip"
+              type="button"
+              aria-pressed="false"
+              aria-label="Ver biografia de Carlos Henrique"
+              aria-expanded="false"
+              aria-controls="bio-carlos"
+            >
+              <span class="developer-card-front">
+                <span class="developer-card-number" aria-hidden="true">05 / 09</span>
+                <span class="developer-card-art has-photo" aria-hidden="true"
+                  ><img
+                    class="developer-card-photo"
+                    src="assets/images/Carlos.webp"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                /></span>
+                <span class="developer-card-details">
+                  <span class="developer-card-role">Desenvolvedor back-end</span>
+                  <strong class="developer-card-name">Carlos Henrique</strong>
+                </span>
+                <span class="developer-card-hint">Clique para conhecer</span>
+              </span>
+              <span class="developer-card-back" id="bio-carlos" aria-hidden="true">
+                <span class="developer-card-role">Desenvolvedor back-end</span>
+                <strong class="developer-bio-name">Carlos Henrique</strong>
+                <span class="developer-bio-text"
+                  >Graduando do 4º período de Análise e Desenvolvimento de Sistemas (ADS) na UniFacema, integra a equipe
+                  da Fábrica de Software, atuando no desenvolvimento de sistemas e soluções tecnológicas. Com atuação
+                  voltada ao desenvolvimento de software, aprimoramento técnico e colaboração em projetos
+                  tecnológicos.</span
+                >
+                <span class="developer-bio-return">Clique para voltar à foto</span>
+              </span>
+            </button>
+            <article class="developer-card developer-card--felipe developer-card--flip" aria-label="Felipe Serejo">
+              <button
+                class="developer-flip-trigger"
+                type="button"
+                aria-pressed="false"
+                aria-label="Ver biografia de Felipe Serejo"
+                aria-expanded="false"
+                aria-controls="bio-felipe"
+              >
+                <span class="developer-card-front">
+                  <span class="developer-card-number" aria-hidden="true">06 / 09</span>
+                  <span class="developer-card-art has-photo" aria-hidden="true"
+                    ><img
+                      class="developer-card-photo"
+                      src="assets/images/felipe-serejo.webp"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    /><span class="developer-photo-initials">FS</span></span
+                  >
+                  <span class="developer-card-details">
+                    <span class="developer-card-role">Desenvolvedor web em formação</span>
+                    <strong class="developer-card-name">Felipe Serejo</strong>
+                  </span>
+                  <span class="developer-card-hint">Clique para conhecer</span>
+                </span>
+                <span class="developer-card-back" id="bio-felipe" aria-hidden="true">
+                  <span class="developer-card-role">Desenvolvedor web em formação</span>
+                  <strong class="developer-bio-name">Felipe Serejo</strong>
+                  <span class="developer-bio-text"
+                    >Sou estudante de Análise e Desenvolvimento de Sistemas (ADS) no UniFacema e desenvolvedor web em
+                    formação. Atualmente, atuo no setor de Tecnologia da Informação (TI) do SAAE, conciliando minha
+                    experiência profissional com a graduação e a formação técnica em Cibersistemas para Automação pelo
+                    SENAI.</span
+                  >
+                  <span class="developer-bio-text developer-bio-paragraph"
+                    >Tenho foco em TypeScript, Next.js e Laravel, além de interesse em bancos de dados, infraestrutura,
+                    Linux, automação e cibersegurança.</span
+                  >
+                  <span class="developer-bio-text developer-bio-paragraph"
+                    >Gosto de desenvolver sistemas e ferramentas que resolvam problemas reais, buscando constantemente
+                    aprimorar meus conhecimentos e evoluir profissionalmente na área de tecnologia.</span
+                  >
+                  <span class="developer-bio-return">Clique para voltar à foto</span>
+                </span>
+              </button>
+              <a
+                class="developer-github"
+                href="https://github.com/sshs3rejo"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub de Felipe Serejo (abre em nova aba)"
+                title="GitHub de Felipe Serejo"
+                tabindex="-1"
+              >
+                <img src="assets/images/technologies/github.svg" width="24" height="24" alt="" />
+              </a>
+            </article>
+            <article class="developer-card developer-card--isac developer-card--flip" aria-label="Isac Chaves">
+              <button
+                class="developer-flip-trigger"
+                type="button"
+                aria-pressed="false"
+                aria-label="Ver biografia de Isac Chaves"
+                aria-expanded="false"
+                aria-controls="bio-isac"
+              >
+                <span class="developer-card-front">
+                  <span class="developer-card-number" aria-hidden="true">07 / 09</span>
+                  <span class="developer-card-art has-photo" aria-hidden="true"
+                    ><img
+                      class="developer-card-photo"
+                      src="assets/images/isac.webp"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    /><span class="developer-photo-initials">I</span></span
+                  >
+                  <span class="developer-card-details">
+                    <span class="developer-card-role">Desenvolvedor web em formação</span>
+                    <strong class="developer-card-name">Isac Chaves</strong>
+                  </span>
+                  <span class="developer-card-hint">Clique para conhecer</span>
+                </span>
+                <span class="developer-card-back" id="bio-isac" aria-hidden="true">
+                  <span class="developer-card-role">Desenvolvedor web em formação</span>
+                  <strong class="developer-bio-name">Isac Chaves</strong>
+                  <span class="developer-bio-text"
+                    >Isac Chaves Ghilardi Figueiras é estudante do UniFacema e desenvolvedor em formação, com foco em
+                    desenvolvimento web com JavaScript e PHP.</span
+                  >
+                  <span class="developer-bio-text developer-bio-paragraph"
+                    >Além do código, tem experiência em criação de jogos no Roblox, modelagem 3D no Blender e edição de
+                    vídeo no DaVinci Resolve, uma combinação que une lógica, design e criatividade. Na faculdade, vem se
+                    aprofundando em teste e segurança de software.</span
+                  >
+                  <span class="developer-bio-text developer-bio-paragraph"
+                    >Na Fábrica de Software, busca transformar ideias em soluções funcionais, bem construídas e
+                    agradáveis de usar.</span
+                  >
+                  <span class="developer-bio-return">Clique para voltar à foto</span>
+                </span>
+              </button>
+            </article>
+            <button
+              class="developer-card developer-card--davi developer-card--flip"
+              type="button"
+              aria-pressed="false"
+              aria-label="Ver biografia de Davi"
+              aria-expanded="false"
+              aria-controls="bio-davi"
+            >
+              <span class="developer-card-front">
+                <span class="developer-card-number" aria-hidden="true">08 / 09</span>
+                <span class="developer-card-art has-photo" aria-hidden="true"
+                  ><img
+                    class="developer-card-photo"
+                    src="assets/images/Davi.webp"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                /></span>
+                <span class="developer-card-details">
+                  <span class="developer-card-role">Analista de Sistemas</span>
+                  <strong class="developer-card-name">Davi</strong>
+                </span>
+                <span class="developer-card-hint">Clique para conhecer</span>
+              </span>
+              <span class="developer-card-back" id="bio-davi" aria-hidden="true">
+                <span class="developer-card-role">Analista de Sistemas</span>
+                <strong class="developer-bio-name">Davi</strong>
+                <span class="developer-bio-text"
+                  >Olá! Sou o Davi, estudante de Análise e Desenvolvimento de Sistemas na UniFacema, em Caxias (MA), com
+                  formatura prevista para o início de 2027. Sou bolsista PIBIC, com pesquisa em machine learning
+                  aplicado à saúde, e atuo como Analista de Sistemas na Fábrica de Software da UniFACEMA.</span
+                >
+                <span class="developer-bio-return">Clique para voltar à foto</span>
+              </span>
+            </button>
+            <button
+              class="developer-card developer-card--reony"
+              type="button"
+              aria-pressed="false"
+              aria-label="Conhecer Reony"
+            >
+              <span class="developer-card-number" aria-hidden="true">09 / 09</span>
+              <span class="developer-card-art has-photo" aria-hidden="true"
+                ><img
+                  class="developer-card-photo"
+                  src="assets/images/reony.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                /><span class="developer-photo-initials">R</span></span
+              >
+              <span class="developer-card-details">
+                <span class="developer-card-role">Desenvolvedor da FSU</span>
+                <strong class="developer-card-name">Reony</strong>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="cases" class="included-section">
+        <div class="container" data-reveal>
+          <div class="included-header">
+            <div class="section-badge">
+              <span class="badge-dot"></span>
+              Como trabalhamos
+            </div>
+
+            <h2 class="section-title">
+              O que está incluído em um projeto <span class="text-highlight">com a FSU</span>
+            </h2>
+
+            <p class="section-desc">
+              Além do desenvolvimento, o projeto inclui acompanhamento técnico, validações contínuas, documentação e
+              visibilidade sobre a evolução da solução.
+            </p>
+          </div>
+
+          <div class="included-grid">
+            <div class="included-card">
+              <div class="card-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+              </div>
+              <h3 class="card-title">Decisões técnicas alinhadas ao negócio</h3>
+              <p class="card-text">
+                A solução é definida a partir do problema, da operação e dos objetivos da empresa — não apenas da
+                tecnologia.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <div class="card-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+              <h3 class="card-title">Entrega com previsibilidade</h3>
+              <p class="card-text">
+                Você acompanha o que está em andamento, o que foi entregue e o que virá no próximo período do projeto.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <div class="card-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </div>
+              <h3 class="card-title">Comunicação direta</h3>
+              <p class="card-text">
+                Contato próximo com o time técnico para esclarecer dúvidas, validar entregas e manter o projeto
+                alinhado.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <div class="card-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  />
+                </svg>
+              </div>
+              <h3 class="card-title">Qualidade como parte do processo</h3>
+              <p class="card-text">
+                Testes, revisões e validações acontecem durante o desenvolvimento, reduzindo problemas acumulados para o
+                final.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <div class="card-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <h3 class="card-title">Gestão de risco e continuidade</h3>
+              <p class="card-text">
+                Documentação, compartilhamento de conhecimento e organização técnica reduzem dependência de pessoas e
+                facilitam a continuidade do projeto.
+              </p>
+            </div>
+
+            <div class="included-card card-with-visual">
+              <div>
+                <div class="card-icon-wrap">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="20" x2="18" y2="10" />
+                    <line x1="12" y1="20" x2="12" y2="4" />
+                    <line x1="6" y1="20" x2="6" y2="14" />
+                  </svg>
+                </div>
+                <h3 class="card-title">Visibilidade do progresso</h3>
+                <p class="card-text">
+                  Você acompanha entregas, itens em andamento, próximos passos e pontos de atenção ao longo de todo o
+                  ciclo.
+                </p>
+              </div>
+              <div class="visual-container">
+                <img src="assets/images/laptop-preview.svg" alt="Preview da esteira e dashboard de entregas FSU" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contato" class="final-cta-section">
+        <div class="container" data-reveal>
+          <div class="cta-container-card">
+            <h2 class="cta-heading">Vamos tirar seu projeto do papel?</h2>
+            <p class="cta-subheading">
+              Agende uma conversa de 30 minutos sem compromisso para avaliarmos juntos o melhor caminho para o seu
+              sistema.
+            </p>
+            <button type="button" class="btn btn-primary js-open-modal" data-service="Agendamento 30min">
+              Agendar uma conversa
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand-col">
+            <img
+              src="assets/images/logo-fsu-horizontal.webp"
+              data-logo-dark="assets/images/logo-fsu-horizontal.webp"
+              data-logo-light="assets/images/fsu-logo-horizontal-light.webp"
+              alt="FSU - F&aacute;brica de Software"
+              class="footer-logo-img"
+            />
+            <p class="footer-brand-text">
+              Desenvolvimento de software sob medida para empresas que buscam eficiência operacional, controle e
+              arquitetura sólida.
+            </p>
+          </div>
+
+          <div class="footer-links-col">
+            <h4 class="col-title">Links</h4>
+            <ul class="links-list">
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#quem-somos">Quem somos</a></li>
+              <li><a href="#cases">Cases</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links-col">
+            <h4 class="col-title">Informações</h4>
+            <ul class="links-list">
+              <li><a href="#contato">Contato</a></li>
+              <li><a href="#">Privacidade</a></li>
+              <li><a href="#">Termos de Uso</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">© 2026 FSU — Fábrica de Software. Todos os direitos reservados.</p>
+
+          <div class="social-links">
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener"
+              class="social-icon-link"
+              aria-label="LinkedIn"
+            >
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                />
+              </svg>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener" class="social-icon-link" aria-label="GitHub">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="contactModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3 id="modalTitle" class="modal-title">Fale sobre seu projeto</h3>
+          <button type="button" class="modal-close-btn" aria-label="Fechar modal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <form id="leadForm">
+            <div class="form-group">
+              <label for="formName">Seu Nome *</label>
+              <input type="text" id="formName" name="name" required placeholder="Como podemos te chamar?" />
+            </div>
+
+            <div class="form-group">
+              <label for="formEmail">E-mail Corporativo *</label>
+              <input type="email" id="formEmail" name="email" required placeholder="seu@empresa.com.br" />
+            </div>
+
+            <div class="form-group">
+              <label for="formPhone">WhatsApp / Telefone</label>
+              <input type="tel" id="formPhone" name="phone" placeholder="(11) 99999-9999" />
+            </div>
+
+            <div class="form-group">
+              <label for="formInterest">Modelo de Interesse</label>
+              <select id="formInterest" name="interest">
+                <option value="Escopo Definido">Projeto com escopo definido</option>
+                <option value="Time Dedicado">Time dedicado para evolução contínua</option>
+                <option value="Diagnóstico e Arquitetura">Diagnóstico e Arquitetura de Software</option>
+                <option value="Outro">Outro desafio operacional</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="formDetails">Descreva brevemente seu objetivo ou problema</label>
+              <textarea
+                id="formDetails"
+                name="details"
+                placeholder="Conte um pouco sobre o que sua empresa precisa construir ou melhorar..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-accent" style="width: 100%">Enviar informações</button>
+
+            <div class="form-feedback" role="alert"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/liquid-glass-navbar.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/particle-drift.js"></script>
+    <script src="assets/js/marquee.js"></script>
+    <script src="assets/js/glass-sidebar.js"></script>
+  </body>
+</html>
