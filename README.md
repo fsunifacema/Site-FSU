@@ -1,5 +1,6 @@
 ## OBS
 Em casos de duvida no css é só falar com os programadores front end da fabrica (Thiago e Samuel), o projeto em si ele tá apenas o front end algumas coisas como o formulario de contato tá apenas no css e js , nao tem banco de dados ainda e nem back-end ainda... (mais atualizações é só adicionar aqui)
+`aviso Thiago: criei outra branche em outra linguagem (não faça nenhuma alteração)`  
 
 
 ## Como abrir
