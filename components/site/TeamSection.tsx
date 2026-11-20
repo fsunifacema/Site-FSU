@@ -118,6 +118,7 @@ export function TeamSection() {
                   className="developer-card-photo"
                   alt=""
                 />
+                <span className="developer-photo-initials">JM</span>
               </span>{" "}
               <span className="developer-card-details">
                 <span className="developer-card-role">Desenvolvedor back-end</span>{" "}
@@ -160,6 +161,7 @@ export function TeamSection() {
                   className="developer-card-photo"
                   alt=""
                 />
+                <span className="developer-photo-initials">IM</span>
               </span>{" "}
               <span className="developer-card-details">
                 <span className="developer-card-role">Desenvolvedor frontend</span>{" "}
@@ -195,6 +197,7 @@ export function TeamSection() {
                   className="developer-card-photo"
                   alt=""
                 />
+                <span className="developer-photo-initials">CH</span>
               </span>{" "}
               <span className="developer-card-details">
                 <span className="developer-card-role">Desenvolvedor back-end</span>{" "}
@@ -346,6 +349,7 @@ export function TeamSection() {
                   className="developer-card-photo"
                   alt=""
                 />
+                <span className="developer-photo-initials">D</span>
               </span>{" "}
               <span className="developer-card-details">
                 <span className="developer-card-role">Analista de Sistemas</span>{" "}

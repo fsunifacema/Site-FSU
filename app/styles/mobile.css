@@ -113,6 +113,119 @@ body {
   }
 }
 
+/* Celular: página mais curta sem mudar o computador. */
+@media (max-width: 700px) {
+  /* Espaço entre seções acompanha a largura (48px num celular pequeno). */
+  .diagnostic-section,
+  .included-section {
+    padding-block: clamp(48px, 12vw, 90px);
+  }
+
+  .developers-section {
+    padding-block: clamp(48px, 12vw, 72px);
+  }
+
+  .final-cta-section {
+    padding-block: clamp(48px, 12vw, 80px) clamp(56px, 14vw, 100px);
+  }
+
+  .site-footer {
+    padding-block: clamp(44px, 11vw, 70px) 32px;
+  }
+
+  .diagnostic-section .diagnostic-header,
+  .included-section .included-header {
+    margin-bottom: clamp(28px, 8vw, 60px);
+  }
+
+  /* Logo do topo: repete o do cabeçalho, então fica menor e a faixa de tecnologias aparece antes. */
+  .hero-section .hero-container {
+    gap: 12px;
+
+    & .hero-visual {
+      min-height: 230px;
+    }
+
+    /* Mesmo aninhamento do original (.hero-visual .hero-logo); com menos, a regra perde e não pega. */
+    & .hero-visual .hero-logo {
+      width: min(55%, 180px);
+    }
+
+    & .hero-orbit {
+      width: min(70%, 250px);
+    }
+
+    & .hero-orbit-outer {
+      width: min(80%, 290px);
+    }
+  }
+
+  /* Cards "O que está incluído": ícone ao lado do título (grid de 2 colunas no card). */
+  .included-section .included-grid {
+    gap: 14px;
+
+    & .included-card,
+    & .included-card.card-with-visual {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      column-gap: 14px;
+      align-items: center;
+      padding: 20px 18px;
+
+      & .card-icon-wrap {
+        margin-bottom: 0;
+      }
+
+      & .card-title {
+        margin-bottom: 0;
+      }
+
+      & .card-text,
+      &.card-with-visual .visual-container {
+        grid-column: 1 / -1;
+      }
+
+      & .card-text {
+        margin-top: 10px;
+      }
+
+      &.card-with-visual .visual-container {
+        margin-top: 16px;
+      }
+
+      /* Neste card ícone, título e texto vêm dentro de um div: contents deixa o grid enxergar os três. */
+      &.card-with-visual > div:first-child {
+        display: contents;
+      }
+    }
+  }
+
+  /* Rodapé: marca em cima, as duas colunas de links lado a lado. */
+  .site-footer {
+    & .footer-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 20px;
+      margin-bottom: 32px;
+
+      & .footer-brand-col {
+        grid-column: 1 / -1;
+
+        & .footer-logo-img {
+          height: 40px;
+        }
+      }
+
+      & .footer-links-col .col-title {
+        margin-bottom: 6px;
+      }
+    }
+
+    & .footer-bottom {
+      padding-top: 24px;
+    }
+  }
+}
+
 @media (max-width: 520px) {
   .container {
     padding-left: max(16px, env(safe-area-inset-left));
@@ -144,12 +257,6 @@ body {
   }
 
   .diagnostic-section {
-    padding: 64px 0;
-
-    & .diagnostic-header {
-      margin-bottom: 36px;
-    }
-
     & .diagnostic-grid {
       grid-template-columns: minmax(0, 1fr);
       gap: 20px;

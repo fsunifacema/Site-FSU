@@ -50,7 +50,7 @@ export function Hero() {
             lightAlt="Logo azul da FSU — Fábrica de Software UNIFACEMA"
             priority
             className="hero-logo"
-            sizes="370px"
+            sizes="(max-width: 700px) 180px, 370px"
           />
         </div>
       </div>
