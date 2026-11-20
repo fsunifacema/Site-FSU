@@ -11,7 +11,6 @@ Abra o `index.html` no navegador, ou sirva a pasta com qualquer servidor estáti
 python -m http.server 3000
 ```
 
-Depois acesse `http://localhost:3000`.
 
 ## Recursos
 
