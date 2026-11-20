@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 
 import { mountAccordions } from "@/lib/effects/accordions";
+import { mountCardMotion } from "@/lib/effects/card-motion";
 import { mountColorMode } from "@/lib/effects/color-mode";
 import { mountDevelopersGallery } from "@/lib/effects/developers-gallery";
 import { mountGlassSidebar } from "@/lib/effects/glass-sidebar";
@@ -20,6 +21,7 @@ export function SiteEffects() {
       mountHeaderScroll(),
       mountAccordions(),
       mountDevelopersGallery(),
+      mountCardMotion(),
       mountScrollReveal(),
       mountGlassSidebar(),
       mountEach<HTMLElement>(".nimbus-nav", mountLiquidNavbar),

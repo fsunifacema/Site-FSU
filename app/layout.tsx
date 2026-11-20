@@ -8,6 +8,7 @@ import "./styles/style.css";
 import "./styles/glass-sidebar.css";
 import "./styles/light-mode.css";
 import "./styles/next.css";
+import "./styles/cards-premium.css";
 
 const inter = localFont({
   src: "./fonts/inter-latin-700.woff2",
