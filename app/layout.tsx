@@ -10,6 +10,7 @@ import "./styles/light-mode.css";
 import "./styles/next.css";
 import "./styles/cards-premium.css";
 import "./styles/contact-glass.css";
+import "./styles/mobile.css";
 
 const inter = localFont({
   src: "./fonts/inter-latin-700.woff2",
@@ -30,7 +31,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   width: "device-width",
-  initialScale: 1
+  initialScale: 1,
+  viewportFit: "cover"
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

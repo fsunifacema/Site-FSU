@@ -1,0 +1,204 @@
+/*
+ * Ajustes para celulares de 280px (dobráveis fechados) até tablets,
+ * em retrato e paisagem, com notch e barra de endereço que encolhe.
+ * Carregado por último: só sobrescreve o que o CSS original não cobre.
+ */
+
+/* Seletores diferentes de propósito: na mesma regra o Lightning CSS descarta um dos dois (L-074). */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+:root {
+  text-size-adjust: 100%;
+}
+
+/* clip corta o que vaza sem criar área de rolagem lateral (hidden ainda deixa arrastar no iOS). */
+html,
+body {
+  overflow-x: clip;
+}
+
+/* Notch e cantos arredondados: só têm efeito com viewport-fit=cover (layout.tsx). */
+.container {
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
+}
+
+.glass-sidebar-launcher {
+  left: max(18px, env(safe-area-inset-left));
+}
+
+@media (max-width: 760px) {
+  .glass-sidebar-launcher {
+    left: max(12px, env(safe-area-inset-left));
+  }
+}
+
+/* O canvas de água do menu é decorativo e passa 14px da pílula; não pode gerar rolagem. */
+.site-header .header-container {
+  overflow-x: clip;
+  overflow-clip-margin: 14px;
+}
+
+/* Modal: cabe em qualquer altura de tela e rola por dentro. */
+.modal-overlay {
+  padding:
+    max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
+    max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+
+  & .modal-card {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 32px);
+    max-height: calc(100dvh - 32px);
+
+    & .modal-header {
+      flex: none;
+    }
+
+    & .modal-body {
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}
+
+/* Tela de toque: alvos de pelo menos 44px, sem mudar o visual no mouse. */
+@media (pointer: coarse) {
+  .site-footer .footer-links-col .links-list {
+    gap: 0;
+
+    & a {
+      display: inline-block;
+      padding-block: 12px;
+    }
+  }
+
+  .site-footer .footer-bottom .social-links {
+    gap: 4px;
+
+    & .social-icon-link {
+      min-width: 44px;
+      min-height: 44px;
+    }
+  }
+
+  .modal-overlay .modal-card .modal-header .modal-close-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* 16px impede o zoom automático do iOS ao tocar no campo. */
+  .modal-overlay .modal-card .modal-body .form-group :is(input, textarea, select) {
+    font-size: 16px;
+  }
+
+  .modal-overlay .modal-card {
+    & .modal-header {
+      padding: 18px 20px;
+    }
+
+    & .modal-body {
+      padding: 20px;
+    }
+  }
+
+  .developers-section .developers-kicker,
+  .developers-section .developer-card :is(.developer-card-hint, .developer-card-role) {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+
+  /* scale() só encolhe o desenho, não o espaço ocupado: o menu vazava da tela. */
+  .site-header .header-container {
+    gap: 8px;
+
+    & .nimbus-nav {
+      transform: none;
+      flex: none;
+    }
+
+    & .nimbus-nav .nimbus-item {
+      height: 36px;
+      padding: 0 10px;
+    }
+
+    & .header-brand {
+      flex: 0 1 auto;
+      min-width: 0;
+
+      & .brand-logo-img {
+        width: clamp(84px, 30vw, 130px);
+      }
+    }
+  }
+
+  .diagnostic-section {
+    padding: 64px 0;
+
+    & .diagnostic-header {
+      margin-bottom: 36px;
+    }
+
+    & .diagnostic-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 20px;
+
+      & .problems-column .accordion-item .accordion-header {
+        padding: 16px;
+      }
+
+      & .diagram-column {
+        padding: 24px 18px;
+      }
+    }
+  }
+
+  .site-footer .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+/* Dobráveis fechados e telas muito estreitas. */
+@media (max-width: 340px) {
+  .site-header .header-container .nimbus-nav {
+    padding: 4px;
+
+    & .nimbus-item {
+      padding: 0 8px;
+    }
+  }
+}
+
+/* Celular deitado: pouca altura, então o cabeçalho e os espaços encolhem. */
+@media (max-height: 500px) and (orientation: landscape) {
+  .site-header .header-container {
+    height: 60px;
+  }
+
+  .modal-overlay .modal-card {
+    & .modal-header {
+      padding: 12px 20px;
+    }
+
+    & .modal-body {
+      padding: 16px 20px;
+    }
+
+    & .modal-body .form-group {
+      margin-bottom: 12px;
+    }
+  }
+}
