@@ -41,7 +41,7 @@ export function ContactModal({ request, onClose }: ContactModalProps) {
         if (event.target === event.currentTarget) onClose();
       }}
     >
-      <div className="modal-card" ref={cardRef}>
+      <div className="modal-card glass-card" ref={cardRef}>
         <div className="modal-header">
           <h3 id="modalTitle" className="modal-title">
             Fale sobre seu projeto

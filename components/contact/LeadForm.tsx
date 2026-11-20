@@ -1,6 +1,14 @@
 "use client";
 
-import { startTransition, useActionState, useEffect, useRef, type SubmitEvent } from "react";
+import {
+  startTransition,
+  useActionState,
+  useEffect,
+  useRef,
+  type AnimationEvent,
+  type PointerEvent,
+  type SubmitEvent
+} from "react";
 
 import { submitLead } from "@/app/actions/submit-lead";
 import { INTEREST_OPTIONS, type LeadFormState } from "@/lib/lead-options";
@@ -25,6 +33,20 @@ export function LeadForm({ source, onSent }: LeadFormProps) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     startTransition(() => formAction(formData));
+  };
+
+  const startRipple = (event: PointerEvent<HTMLButtonElement>) => {
+    const button = event.currentTarget;
+    const rect = button.getBoundingClientRect();
+    button.style.setProperty("--ripple-x", `${event.clientX - rect.left}px`);
+    button.style.setProperty("--ripple-y", `${event.clientY - rect.top}px`);
+    button.classList.remove("is-rippling");
+    void button.offsetWidth;
+    button.classList.add("is-rippling");
+  };
+
+  const endRipple = (event: AnimationEvent<HTMLButtonElement>) => {
+    if (event.animationName === "glass-ripple") event.currentTarget.classList.remove("is-rippling");
   };
 
   return (
@@ -88,7 +110,14 @@ export function LeadForm({ source, onSent }: LeadFormProps) {
         />
       </div>
 
-      <button type="submit" className="btn btn-accent" style={{ width: "100%" }} disabled={isPending}>
+      <button
+        type="submit"
+        className="btn btn-accent glass-submit"
+        style={{ width: "100%" }}
+        disabled={isPending}
+        onPointerDown={startRipple}
+        onAnimationEnd={endRipple}
+      >
         {isPending ? "Enviando..." : "Enviar informações"}
       </button>
 

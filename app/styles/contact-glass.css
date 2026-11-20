@@ -1,0 +1,365 @@
+.modal-overlay {
+  background:
+    radial-gradient(circle at 22% 18%, rgba(var(--ui-accent-rgb), 0.22), transparent 46%),
+    radial-gradient(circle at 82% 88%, rgba(59, 139, 247, 0.16), transparent 50%), rgba(3, 14, 32, 0.72);
+  backdrop-filter: blur(14px) saturate(150%);
+}
+
+.modal-overlay .glass-card {
+  --water-image: url("/assets/images/contact/water-dark.webp");
+  --glass-tint-top: rgba(10, 42, 84, 0.62);
+  --glass-tint-bottom: rgba(4, 18, 40, 0.8);
+  --glass-rim: rgba(170, 210, 255, 0.3);
+  --field-bg: rgba(255, 255, 255, 0.06);
+  --field-bg-focus: rgba(255, 255, 255, 0.1);
+  --field-border: rgba(170, 210, 255, 0.2);
+  --field-text: #fff;
+  --field-placeholder: rgba(205, 225, 250, 0.5);
+
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(165deg, var(--glass-tint-top), var(--glass-tint-bottom));
+  border: 1px solid var(--glass-rim);
+  border-radius: 28px;
+  backdrop-filter: blur(24px) saturate(170%);
+  box-shadow:
+    0 40px 90px rgba(0, 8, 24, 0.55),
+    0 0 0 1px rgba(var(--ui-accent-rgb), 0.18),
+    0 0 60px rgba(var(--ui-accent-rgb), 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06);
+  transform: translateY(26px) scale(0.96);
+  transition:
+    transform 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 400ms ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -12%;
+    z-index: -1;
+    opacity: 0;
+    mask-image: radial-gradient(130% 110% at 0% 100%, #000 18%, rgba(0, 0, 0, 0.55) 52%, transparent 82%);
+    transition: opacity 700ms ease;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 2;
+    width: 140%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid rgba(190, 225, 255, 0.55);
+    box-shadow:
+      0 0 24px rgba(var(--ui-accent-rgb), 0.35),
+      inset 0 0 24px rgba(var(--ui-accent-rgb), 0.2);
+    translate: -50% -50%;
+    scale: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  & .modal-header,
+  & .modal-body {
+    position: relative;
+    z-index: 1;
+  }
+
+  & .modal-header {
+    border-bottom: 1px solid rgba(170, 210, 255, 0.14);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent);
+
+    & .modal-title {
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      text-shadow: 0 2px 18px rgba(var(--ui-accent-rgb), 0.45);
+    }
+
+    & .modal-close-btn {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(170, 210, 255, 0.22);
+      background: rgba(255, 255, 255, 0.07);
+      color: rgba(225, 238, 255, 0.85);
+      font-size: 20px;
+      backdrop-filter: blur(8px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      transition:
+        background 250ms ease,
+        transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 250ms ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.14);
+        border-color: rgba(190, 225, 255, 0.45);
+        transform: rotate(90deg);
+      }
+
+      &:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  & .modal-body .form-group {
+    & label {
+      color: rgba(215, 232, 252, 0.82);
+      letter-spacing: 0.01em;
+    }
+
+    & :is(input, textarea, select) {
+      background: var(--field-bg);
+      border: 1px solid var(--field-border);
+      border-radius: 14px;
+      color: var(--field-text);
+      backdrop-filter: blur(10px);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -8px 18px rgba(0, 10, 30, 0.12);
+      transition:
+        border-color 250ms ease,
+        background 250ms ease,
+        box-shadow 300ms ease;
+
+      &::placeholder {
+        color: var(--field-placeholder);
+      }
+
+      &:hover {
+        border-color: rgba(170, 210, 255, 0.34);
+      }
+
+      &:focus {
+        background: var(--field-bg-focus);
+        border-color: rgba(var(--ui-accent-rgb), 0.85);
+        box-shadow:
+          0 0 0 4px rgba(var(--ui-accent-rgb), 0.2),
+          0 0 26px rgba(var(--ui-accent-rgb), 0.22),
+          inset 0 1px 0 rgba(255, 255, 255, 0.14),
+          inset 0 0 22px rgba(var(--ui-accent-rgb), 0.14);
+      }
+    }
+
+    & select option {
+      background: #0b2c55;
+      color: #fff;
+    }
+  }
+
+  & .glass-submit {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid rgba(190, 225, 255, 0.35);
+    border-radius: 16px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #4a98ff 0%, var(--ui-accent) 48%, var(--ui-accent-dark) 100%);
+    box-shadow:
+      0 12px 30px rgba(var(--ui-accent-rgb), 0.38),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45),
+      inset 0 -10px 20px rgba(0, 20, 60, 0.25);
+    text-shadow: 0 1px 8px rgba(0, 20, 60, 0.35);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        110deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.08) 42%,
+        rgba(255, 255, 255, 0.38) 50%,
+        rgba(255, 255, 255, 0.08) 58%,
+        transparent 70%
+      );
+      translate: -130% 0;
+      animation: glass-shine 3.6s cubic-bezier(0.45, 0, 0.2, 1) 1.2s infinite;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: var(--ripple-x, 50%);
+      top: var(--ripple-y, 50%);
+      z-index: -1;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.12) 60%, transparent 70%);
+      translate: -50% -50%;
+      scale: 0;
+      opacity: 0;
+    }
+
+    &.is-rippling::after {
+      animation: glass-ripple 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 18px 40px rgba(var(--ui-accent-rgb), 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.55),
+        inset 0 -10px 20px rgba(0, 20, 60, 0.25);
+    }
+
+    &:disabled::before {
+      animation-duration: 1.1s;
+    }
+  }
+
+  & .form-privacy-note {
+    color: rgba(205, 225, 250, 0.68);
+  }
+
+  & .form-feedback.is-success,
+  & .form-feedback.is-error {
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+  }
+}
+
+.modal-overlay.is-visible .glass-card {
+  transform: translateY(0) scale(1);
+
+  &::before {
+    background: var(--water-image) center / cover no-repeat;
+    opacity: 0.85;
+    animation: water-drift 26s ease-in-out infinite alternate;
+  }
+
+  &::after {
+    animation: water-open-ripple 1300ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
+  }
+}
+
+html[data-color-mode="light"] .modal-overlay {
+  background:
+    radial-gradient(circle at 22% 18%, rgba(var(--ui-accent-rgb), 0.18), transparent 46%), rgba(214, 230, 250, 0.55);
+}
+
+html[data-color-mode="light"] .modal-overlay .modal-card.glass-card {
+  --water-image: url("/assets/images/contact/water-light.webp");
+  --glass-tint-top: rgba(255, 255, 255, 0.74);
+  --glass-tint-bottom: rgba(236, 245, 255, 0.86);
+  --glass-rim: rgba(255, 255, 255, 0.9);
+  --field-bg: rgba(255, 255, 255, 0.62);
+  --field-bg-focus: rgba(255, 255, 255, 0.85);
+  --field-border: rgba(1, 82, 207, 0.18);
+  --field-text: #061d3a;
+  --field-placeholder: rgba(6, 29, 58, 0.45);
+
+  background: linear-gradient(165deg, var(--glass-tint-top), var(--glass-tint-bottom));
+  box-shadow:
+    0 40px 90px rgba(1, 52, 126, 0.22),
+    0 0 0 1px rgba(1, 82, 207, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+
+  & .modal-header {
+    border-bottom-color: rgba(1, 82, 207, 0.12);
+
+    & .modal-title {
+      color: #061d3a;
+      text-shadow: none;
+    }
+
+    & .modal-close-btn {
+      color: #0152cf;
+      background: rgba(255, 255, 255, 0.7);
+      border-color: rgba(1, 82, 207, 0.2);
+    }
+  }
+
+  & .modal-body .form-group {
+    & label {
+      color: #24456f;
+    }
+
+    & select option {
+      background: #fff;
+      color: #061d3a;
+    }
+  }
+
+  & .form-privacy-note {
+    color: #47658c;
+  }
+}
+
+html[data-color-mode="light"] .modal-overlay.is-visible .modal-card.glass-card::before {
+  opacity: 0.7;
+}
+
+@keyframes water-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-3%, 2%, 0) scale(1.06) rotate(1.2deg);
+  }
+  100% {
+    transform: translate3d(2%, -2%, 0) scale(1.03) rotate(-0.8deg);
+  }
+}
+
+@keyframes water-open-ripple {
+  0% {
+    scale: 0;
+    opacity: 0.9;
+  }
+  100% {
+    scale: 1;
+    opacity: 0;
+  }
+}
+
+@keyframes glass-shine {
+  0% {
+    translate: -130% 0;
+  }
+  45%,
+  100% {
+    translate: 130% 0;
+  }
+}
+
+@keyframes glass-ripple {
+  0% {
+    scale: 0;
+    opacity: 1;
+  }
+  100% {
+    scale: 26;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-overlay .glass-card {
+    transform: none;
+    transition: none;
+
+    & .glass-submit::before,
+    & .glass-submit.is-rippling::after {
+      animation: none;
+    }
+  }
+
+  .modal-overlay.is-visible .glass-card {
+    transform: none;
+
+    &::before,
+    &::after {
+      animation: none;
+    }
+  }
+}

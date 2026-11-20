@@ -9,6 +9,7 @@ import "./styles/glass-sidebar.css";
 import "./styles/light-mode.css";
 import "./styles/next.css";
 import "./styles/cards-premium.css";
+import "./styles/contact-glass.css";
 
 const inter = localFont({
   src: "./fonts/inter-latin-700.woff2",
