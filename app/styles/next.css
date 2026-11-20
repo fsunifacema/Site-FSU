@@ -19,6 +19,13 @@ html[data-color-mode="light"] .theme-logo--dark {
   color: var(--text-main);
 }
 
+.modal-overlay .modal-card .form-privacy-note {
+  margin: 10px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-muted, var(--text-dim));
+}
+
 .modal-overlay .modal-card button[type="submit"]:disabled {
   opacity: 0.7;
   cursor: progress;

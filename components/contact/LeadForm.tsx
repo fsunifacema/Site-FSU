@@ -1,9 +1,9 @@
 "use client";
 
-import { startTransition, useActionState, useEffect, useRef, type FormEvent } from "react";
+import { startTransition, useActionState, useEffect, useRef, type SubmitEvent } from "react";
 
 import { submitLead } from "@/app/actions/submit-lead";
-import { INTEREST_OPTIONS, type LeadFormState } from "@/lib/leads";
+import { INTEREST_OPTIONS, type LeadFormState } from "@/lib/lead-options";
 
 const AUTO_CLOSE_MS = 3000;
 const INITIAL_STATE: LeadFormState = { status: "idle" };
@@ -21,7 +21,7 @@ export function LeadForm({ source, onSent }: LeadFormProps) {
     return () => window.clearTimeout(timer);
   }, [state, onSent]);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     startTransition(() => formAction(formData));
@@ -91,6 +91,10 @@ export function LeadForm({ source, onSent }: LeadFormProps) {
       <button type="submit" className="btn btn-accent" style={{ width: "100%" }} disabled={isPending}>
         {isPending ? "Enviando..." : "Enviar informações"}
       </button>
+
+      <p className="form-privacy-note">
+        Usamos estes dados só para responder ao seu contato. Nome e e-mail são obrigatórios; o resto é opcional.
+      </p>
 
       <div className={state.status === "idle" ? "form-feedback" : `form-feedback is-${state.status}`} role="alert">
         {state.status === "idle" ? null : state.message}
