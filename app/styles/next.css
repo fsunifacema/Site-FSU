@@ -1,0 +1,25 @@
+html:not([data-color-mode="light"]) .theme-logo--light,
+html[data-color-mode="light"] .theme-logo--dark {
+  display: none !important;
+}
+
+.form-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.modal-overlay .modal-card .form-feedback.is-error {
+  display: block;
+  background: rgba(220, 38, 38, 0.14);
+  border: 1px solid rgba(248, 113, 113, 0.55);
+  color: var(--text-main);
+}
+
+.modal-overlay .modal-card button[type="submit"]:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
