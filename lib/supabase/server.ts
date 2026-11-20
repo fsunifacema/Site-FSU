@@ -4,14 +4,14 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 let client: SupabaseClient | null = null;
 
-export function getSupabaseAdmin(): SupabaseClient | null {
+export function getSupabase(): SupabaseClient | null {
   if (client) return client;
 
   const url = process.env.SUPABASE_URL;
-  const secretKey = process.env.SUPABASE_SECRET_KEY;
-  if (!url || !secretKey) return null;
+  const publishableKey = process.env.SUPABASE_PUBLISHABLE_KEY;
+  if (!url || !publishableKey) return null;
 
-  client = createClient(url, secretKey, {
+  client = createClient(url, publishableKey, {
     auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false }
   });
   return client;
