@@ -67,6 +67,12 @@ body {
 
 /* Tela de toque: alvos de pelo menos 44px, sem mudar o visual no mouse. */
 @media (pointer: coarse) {
+  /* O brilho anima background-position num texto com drop-shadow: redesenha o desfoque a cada quadro.
+     No celular passa 3 vezes e para no mesmo visual de repouso (o brilho fica fora do texto nas duas pontas). */
+  .hero-section .hero-container .hero-title .hero-highlight {
+    animation-iteration-count: 3;
+  }
+
   .site-footer .footer-links-col .links-list {
     gap: 0;
 

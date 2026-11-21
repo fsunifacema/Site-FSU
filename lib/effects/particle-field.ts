@@ -2,7 +2,11 @@ import type { Cleanup } from "./types";
 
 const GLYPHS = "01FSU<>/{}+";
 const LINK_LEVELS = 6;
-const FRAME_INTERVAL = 1000 / 30;
+// Toque (celular): menos quadros, menos pixels e menos partículas; o efeito é de fundo e o visual se mantém.
+const TOUCH = typeof window !== "undefined" && window.matchMedia("(hover: none), (pointer: coarse)").matches;
+const FRAME_INTERVAL = 1000 / (TOUCH ? 24 : 30);
+const MAX_PIXEL_RATIO = TOUCH ? 1.5 : 2;
+const DENSITY = TOUCH ? 0.6 : 1;
 
 type Particle = { x: number; y: number; vx: number; vy: number; glyph: string };
 type Beam = { x: number; y: number; length: number; speed: number; alpha: number; gradient?: CanvasGradient };
@@ -18,6 +22,10 @@ export function mountParticleField(canvas: HTMLCanvasElement): Cleanup {
   const linkDistance = isHeader ? 90 : 125;
   const pointerReach = isHeader ? 70 : 150;
   const linkAlpha = isHeader ? 0.17 : 0.2;
+  const fontSize = isHeader ? 10 : 12;
+  const glyphBox = Math.ceil(fontSize * 1.6);
+  const baseAlpha = isHeader ? 0.52 : 0.58;
+  const nearAlpha = 0.78;
   const linkPaths: number[][] = Array.from({ length: LINK_LEVELS }, () => []);
   const mouse = { x: -1000, y: -1000 };
 
@@ -30,6 +38,9 @@ export function mountParticleField(canvas: HTMLCanvasElement): Cleanup {
   let visible = true;
   let frameId = 0;
   let previousTime = 0;
+  // Cada símbolo é desenhado uma vez numa tela fora da página e copiado com drawImage a cada quadro:
+  // fillText por partícula e por quadro era o maior custo do efeito (MDN, Optimizing canvas).
+  let sprites = new Map<string, HTMLCanvasElement>();
 
   const randomGlyph = () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
   const color = (alpha: number) => `rgba(${accent}, ${alpha})`;
@@ -40,19 +51,43 @@ export function mountParticleField(canvas: HTMLCanvasElement): Cleanup {
     beam.gradient.addColorStop(1, color(0));
   }
 
+  function buildSprites() {
+    const next = new Map<string, HTMLCanvasElement>();
+    const side = Math.ceil(glyphBox * pixelRatio);
+    for (const alpha of [baseAlpha, nearAlpha]) {
+      for (const glyph of GLYPHS) {
+        const sprite = document.createElement("canvas");
+        sprite.width = side;
+        sprite.height = side;
+        const spriteContext = sprite.getContext("2d");
+        if (!spriteContext) return;
+        spriteContext.scale(pixelRatio, pixelRatio);
+        spriteContext.font = `${fontSize}px ui-monospace, Consolas, monospace`;
+        spriteContext.textAlign = "center";
+        spriteContext.textBaseline = "middle";
+        spriteContext.fillStyle = color(alpha);
+        spriteContext.fillText(glyph, glyphBox / 2, glyphBox / 2);
+        next.set(alpha + glyph, sprite);
+      }
+    }
+    sprites = next;
+  }
+
   function updateAccent() {
     const value = getComputedStyle(document.documentElement).getPropertyValue("--ui-accent-rgb").trim();
     if (/^\d+\s*,\s*\d+\s*,\s*\d+$/.test(value) && value !== accent) {
       accent = value;
       beams.forEach(paintBeam);
+      buildSprites();
     }
     if (motionPreference.matches) draw(0);
   }
 
   function makeParticles() {
-    const count = isHeader
+    const full = isHeader
       ? Math.min(30, Math.max(12, Math.round(width / 70)))
       : Math.min(65, Math.max(24, Math.round((width * height) / 14500)));
+    const count = Math.round(full * DENSITY);
     nodes = Array.from({ length: count }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -77,7 +112,11 @@ export function mountParticleField(canvas: HTMLCanvasElement): Cleanup {
     if (!nextWidth || !nextHeight || (nextWidth === width && nextHeight === height)) return;
     width = nextWidth;
     height = nextHeight;
-    pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    const nextRatio = Math.min(window.devicePixelRatio || 1, MAX_PIXEL_RATIO);
+    if (nextRatio !== pixelRatio || !sprites.size) {
+      pixelRatio = nextRatio;
+      buildSprites();
+    }
     canvas.width = Math.round(width * pixelRatio);
     canvas.height = Math.round(height * pixelRatio);
     context!.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
@@ -138,9 +177,6 @@ export function mountParticleField(canvas: HTMLCanvasElement): Cleanup {
 
     drawLinks();
 
-    ctx.font = `${isHeader ? 10 : 12}px ui-monospace, Consolas, monospace`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
     for (const node of nodes) {
       node.x += node.vx * delta;
       node.y += node.vy * delta;
@@ -160,8 +196,8 @@ export function mountParticleField(canvas: HTMLCanvasElement): Cleanup {
         ctx.lineTo(mouse.x, mouse.y);
         ctx.stroke();
       }
-      ctx.fillStyle = color(nearby ? 0.78 : isHeader ? 0.52 : 0.58);
-      ctx.fillText(node.glyph, node.x, node.y);
+      const sprite = sprites.get((nearby ? nearAlpha : baseAlpha) + node.glyph);
+      if (sprite) ctx.drawImage(sprite, node.x - glyphBox / 2, node.y - glyphBox / 2, glyphBox, glyphBox);
     }
   }
 

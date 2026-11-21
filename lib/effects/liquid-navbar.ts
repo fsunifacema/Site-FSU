@@ -56,28 +56,39 @@ type Satellite = { x: number; y: number; vx: number; vy: number; r: number; k: n
 type Ripple = { x: number; y: number; age: number; amp: number };
 type AudioWindow = Window & { webkitAudioContext?: typeof AudioContext };
 
-function initGL(canvas: HTMLCanvasElement): GLContext | null {
+// Compila sem travar a página: perguntar COMPILE_STATUS/LINK_STATUS logo depois espera o driver terminar.
+// Com KHR_parallel_shader_compile a compilação corre fora da linha principal e só consultamos COMPLETION_STATUS_KHR
+// a cada quadro; sem a extensão, cai no caminho síncrono de antes. Falha de compilação aparece no LINK_STATUS.
+function initGL(canvas: HTMLCanvasElement, done: (glc: GLContext | null) => void) {
   const gl = canvas.getContext("webgl", { premultipliedAlpha: true, alpha: true, antialias: false });
-  if (!gl) return null;
+  if (!gl) return done(null);
 
   const compile = (type: number, source: string) => {
     const shader = gl.createShader(type);
     if (!shader) return null;
     gl.shaderSource(shader, source);
     gl.compileShader(shader);
-    return gl.getShaderParameter(shader, gl.COMPILE_STATUS) ? shader : null;
+    return shader;
   };
 
   const vertex = compile(gl.VERTEX_SHADER, VERT);
   const fragment = compile(gl.FRAGMENT_SHADER, FRAG);
   const program = gl.createProgram();
-  if (!vertex || !fragment || !program) return null;
+  if (!vertex || !fragment || !program) return done(null);
 
   gl.attachShader(program, vertex);
   gl.attachShader(program, fragment);
   gl.linkProgram(program);
-  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return null;
 
+  const parallel = gl.getExtension("KHR_parallel_shader_compile");
+  const finish = () => done(gl.getProgramParameter(program, gl.LINK_STATUS) ? setupProgram(gl, program) : null);
+  if (!parallel) return finish();
+  const poll = () =>
+    gl.getProgramParameter(program, parallel.COMPLETION_STATUS_KHR) ? finish() : requestAnimationFrame(poll);
+  requestAnimationFrame(poll);
+}
+
+function setupProgram(gl: WebGLRenderingContext, program: WebGLProgram): GLContext {
   gl.useProgram(program);
   gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
@@ -133,13 +144,14 @@ export function mountLiquidNavbar(navEl: HTMLElement): Cleanup {
     h: 0,
     active: !actionOnly,
     reduce: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    // Ondulação contínua só com mouse: no toque o shader redesenhava o menu a cada quadro mesmo parado
+    // (no Lighthouse de celular eram ~1,4 s de TBT). No toque a água anima só ao tocar, trocar de item ou ondular.
+    ambient: window.matchMedia("(hover: hover) and (pointer: fine)").matches,
     raf: 0,
     last: 0,
     time: 0,
-    glc: canvas ? initGL(canvas) : null
+    glc: null as GLContext | null
   };
-
-  if (!st.glc) navEl.setAttribute("data-gl", "off");
 
   const later = (callback: () => void, ms: number) => {
     const id = window.setTimeout(() => {
@@ -315,7 +327,7 @@ export function mountLiquidNavbar(navEl: HTMLElement): Cleanup {
       step(dt, now);
       draw();
       const busy = st.moving || st.rips.length || st.sats.length || st.mouse.s > 0.01;
-      st.raf = st.active && (!st.reduce || busy) ? requestAnimationFrame(tick) : 0;
+      st.raf = st.active && ((st.ambient && !st.reduce) || busy) ? requestAnimationFrame(tick) : 0;
     };
     st.raf = requestAnimationFrame(tick);
   };
@@ -451,6 +463,15 @@ export function mountLiquidNavbar(navEl: HTMLElement): Cleanup {
     },
     options
   );
+
+  if (canvas) {
+    initGL(canvas, (glc) => {
+      if (controller.signal.aborted) return;
+      st.glc = glc;
+      if (!glc) navEl.setAttribute("data-gl", "off");
+      else if (st.ready) loop();
+    });
+  } else navEl.setAttribute("data-gl", "off");
 
   const resizeObserver = new ResizeObserver(() => {
     st.ready = false;

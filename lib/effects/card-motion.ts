@@ -96,9 +96,18 @@ export function mountCardMotion(): Cleanup {
     activationObserver.observe(card, { attributes: true, attributeFilter: ["class"], attributeOldValue: true })
   );
 
+  // O anel do card ativo só gira com a seção na tela (cards-premium.css pausa fora dela).
+  const section = gallery.closest<HTMLElement>(".developers-section");
+  const visibilityObserver = new IntersectionObserver(([entry]) =>
+    section?.classList.toggle("is-onscreen", entry.isIntersecting)
+  );
+  visibilityObserver.observe(gallery);
+
   return () => {
     controller.abort();
     activationObserver.disconnect();
+    visibilityObserver.disconnect();
+    section?.classList.remove("is-onscreen");
     cancelAnimationFrame(frame);
     decorations.forEach((span) => span.remove());
     cards.forEach((card) => {

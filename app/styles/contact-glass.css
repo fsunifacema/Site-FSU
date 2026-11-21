@@ -363,3 +363,8 @@ html[data-color-mode="light"] .modal-overlay.is-visible .modal-card.glass-card::
     }
   }
 }
+
+/* O reflexo do botão Enviar rodava sem parar com o modal fechado (invisível): só anima com ele aberto. */
+.modal-overlay:not(.is-visible) .glass-card .glass-submit::before {
+  animation-play-state: paused;
+}

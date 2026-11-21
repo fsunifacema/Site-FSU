@@ -173,3 +173,9 @@ html.has-reveal .developers-section [data-reveal].is-revealed .developer-card.ha
     --ring-angle: 200deg;
   }
 }
+
+/* --ring-angle é propriedade registrada: animá-la recalcula o estilo a cada quadro, mesmo com o card fora da tela.
+   card-motion.ts marca a seção com .is-onscreen; fora dela o anel fica parado. */
+.developers-section:not(.is-onscreen) .developer-card.is-active .developer-card-ring {
+  animation-play-state: paused;
+}
